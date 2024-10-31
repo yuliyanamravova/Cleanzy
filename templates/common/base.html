@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="box">
+        <header>
+            <nav>
+                <img id="logo" src="{% static 'images/logo.png' %}" alt="logo">
+                <div id="main">
+                    <a href="#home">Cleanzy</a>
+                    <p>Cleaning made easy!</p>
+                </div>
+                <ul>
+                    <li class="type-of-products"><a href="#">Kitchen</a></li>
+                    <li class="type-of-products"><a href="#">Bathroom</a></li>
+                    <li class="type-of-products"><a href="#">Multipurpose</a></li>
+                    <li class="type-of-products"><a href="#">Industrial</a></li>
+                    <li class="type-of-products"><a href="#">Make a request</a></li>
+                    {# {% if no user %} #}
+                        <li class="user"><a href="#">Log In</a></li>
+                        <li class="user"><a href="#">Register</a></li>
+                    {# {% else %} #}
+                        <li class="user"><a href="#">Profile</a></li>
+                        <li class="user"><a href="#">Log Out</a></li>
+                    {# {% endif %} #}
+                </ul>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
+        <footer>
+            <div><a href="#home">Cleanzy!</a>Cleaning made easy!</div>
+        </footer>
+    </div>
+</body>
+</html>

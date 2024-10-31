@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div id="home">
+        <h1>Welcome to the world of cleaning!</h1>
+        <h3><a href="{% url 'catalogue' %}">Take a look at our products</a></h3>
+        <a href="{% url 'create-product' %}">Create Product!</a>
+        <a href="{% url 'delete-product' pk=1 %}">Delete Product!</a>
+        <a href="{% url 'details-product' pk=1%}">Details Product!</a>
+        <a href="{% url 'edit-product' pk=1%}">Edit Product!</a>
+        <a href="{% url 'create-request' %}">Create Request!</a>
+        <a href="{% url 'delete-request' pk=1%}">Delete Request!</a>
+        <a href="{% url 'details-request' pk=1%}">Details Request!</a>
+        <a href="{% url 'edit-request' pk=1%}">Edit Request!</a>
+        <a href="{% url 'create-account' %}">Create Account!</a>
+        <a href="{% url 'delete-account' pk=1%}">Delete Account!</a>
+        <a href="{% url 'details-account' pk=1%}">Details Account!</a>
+        <a href="{% url 'edit-account' pk=1%}">Edit Account!</a>
+    </div>
+{% endblock %}
