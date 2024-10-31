@@ -1,0 +1,28 @@
+nav{
+    background-color: #1F305E;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 3px 5px 10px 10px rgba(0, 0, 0 ,0.5) ;
+}
+img{
+    justify-content: flex-start;
+    block-size: 9em;
+    margin: 1em;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0 0 0 2em;
+    align-items: flex-end;
+}
+ul li{
+    margin: 1em;
+    list-style: none;
+}
+li a{
+    font-size: 1.7em;
+}
