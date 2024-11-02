@@ -12,7 +12,7 @@
             <nav>
                 <img id="logo" src="{% static 'images/logo.png' %}" alt="logo">
                 <div id="main">
-                    <a href="#home">Cleanzy</a>
+                    <a href="{% url 'home' %}">Cleanzy</a>
                     <p>Cleaning made easy!</p>
                 </div>
                 <ul>
@@ -34,7 +34,7 @@
         {% block content %}
         {% endblock %}
         <footer>
-            <div><a href="#home">Cleanzy!</a>Cleaning made easy!</div>
+            <div><a href="{% url 'home' %}">Cleanzy!</a>Cleaning made easy!</div>
         </footer>
     </div>
 </body>
