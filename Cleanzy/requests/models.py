@@ -17,6 +17,6 @@ class Request(models.Model):
     package_type = models.CharField(choices=CHOICES, default='5 Litre', max_length=20)
     quantity = models.IntegerField()
     date = models.DateTimeField(
-        auto_now=True
+        auto_now=True,
     )
     author = models.ForeignKey(to=Account, on_delete=models.CASCADE)

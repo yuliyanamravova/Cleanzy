@@ -10,22 +10,22 @@ def length_validator(code):
 
 
 class Product(models.Model):
-    product_name = models.CharField(
+    name = models.CharField(
         max_length=20
     )
-    product_code = models.CharField(
+    code = models.CharField(
         validators=[length_validator]
     )
-    product_description = models.TextField(
+    description = models.TextField(
+        blank=True, null=True,
+    )
+    ph = models.DecimalField(decimal_places=2, max_digits=4)
+    ingredients = models.TextField(
         max_length=300,
         blank=True, null=True,
     )
-    product_ingredients = models.TextField(
-        max_length=300,
-        blank=True, null=True,
-    )
-    price = models.DecimalField(decimal_places=2, max_digits=3)
-    instructions_for_use = models.TextField()
+    price = models.DecimalField(decimal_places=2, max_digits=5)
+    instructions = models.TextField()
 
     def __str__(self):
-        return self.product_name
+        return self.name

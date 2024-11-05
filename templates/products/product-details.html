@@ -1,5 +1,19 @@
 {% extends 'common/base.html' %}
 {% block content %}
-    
-    
+    <section class="details-page">
+        <div class="wrapper">
+            <div class="heading">
+                <h1>Product Details:</h1>
+                <h3>{{ product.name }}</h3>
+            </div>
+            <div class="info">
+                <p>Description: {{ product.description }}</p>
+                <p>Instructions: {{ product.instructions }}</p>
+                <p>Ingredients: {{ product.ingredients }}</p>
+                <p>pH: {{ product.ph }}</p>
+                <p>Price: {{ product.price }}</p>
+                <a href="#">Add to my request</a>
+            </div>
+        </div>
+        </section>
 {% endblock %}

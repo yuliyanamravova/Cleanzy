@@ -8,12 +8,14 @@
         <a href="{% url 'details-product' pk=1%}">Details Product!</a>
         <a href="{% url 'edit-product' pk=1%}">Edit Product!</a>
         <a href="{% url 'create-request' %}">Create Request!</a>
-        <a href="{% url 'delete-request' pk=1%}">Delete Request!</a>
-        <a href="{% url 'details-request' pk=1%}">Details Request!</a>
-        <a href="{% url 'edit-request' pk=1%}">Edit Request!</a>
+        <a href="{% url 'delete-request' id=1%}">Delete Request!</a>
+        <a href="{% url 'details-request' id=1%}">Details Request!</a>
+        <a href="{% url 'edit-request' id=1%}">Edit Request!</a>
         <a href="{% url 'create-account' %}">Create Account!</a>
-        <a href="{% url 'delete-account' pk=1%}">Delete Account!</a>
-        <a href="{% url 'details-account' pk=1%}">Details Account!</a>
-        <a href="{% url 'edit-account' pk=1%}">Edit Account!</a>
+        <a href="{% url 'delete-account' id=1%}">Delete Account!</a>
+        <a href="{% url 'details-account' id=1%}">Details Account!</a>
+        <a href="{% url 'edit-account' id=1%}">Edit Account!</a>
+        <a href="{% url 'log-in-account' %}">Log In!</a>
+        <a href="{% url 'log-out-account' id=1%}">Log out!</a>
     </div>
 {% endblock %}

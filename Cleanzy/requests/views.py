@@ -1,22 +1,37 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
+
+from Cleanzy.requests.forms import CreateRequestForm, DeleteRequestForm, EditRequestForm
+from Cleanzy.requests.models import Request
+
 
 # Create your views here.
 
-
-def create_request(request):
-    return render(request, 'requests/request-create.html')
-
-
-def delete_request(request, pk):
-    return render(request, 'requests/request-delete.html')
+class CreateRequestView(CreateView):
+    model = Request
+    form_class = CreateRequestForm
+    success_url = reverse_lazy('home')
+    template_name = 'requests/request-create.html'
 
 
-def details_request(request, pk):
-    return render(request, 'requests/request-details.html')
+class DeleteRequestView(DeleteView):
+    model = Request
+    form_class = DeleteRequestForm
+    success_url = reverse_lazy('home')
+    pk_url_kwarg = 'id'
 
 
-def edit_request(request, pk):
-    return render(request, 'requests/request-edit.html')
+class DetailRequestView(DetailView):
+    pk_url_kwarg = 'id'
+    model = Request
+
+
+class EditRequestView(UpdateView):
+    pk_url_kwarg = 'id'
+    model = Request
+    form_class = EditRequestForm
+    success_url = reverse_lazy('home')
 
 
 def list_request(request):
