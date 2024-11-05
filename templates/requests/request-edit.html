@@ -1,8 +1,18 @@
 {% extends 'common/base.html' %}
 {% block content %}
-    <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Edit</button>
-    </form>
+    <section id="create-page">
+        <div class="wrapper">
+            <div class="heading">
+                <h1>Edit Request:</h1>
+            </div>
+            <div class="form">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit">Edit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

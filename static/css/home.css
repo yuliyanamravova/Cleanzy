@@ -1,16 +1,20 @@
+*{
+    text-shadow: dimgray 1px 0 7px;
+}
 body{
-    height: 100vh;
-    width: 100wh;
-    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    width: 98%;
+    height: 100%;
+    background: linear-gradient(158deg, rgba(127,202,255,0.7556343193860933) 0%, rgba(168,72,206,0.6045769175734045) 90%) no-repeat center center fixed;
     background-size: cover;
 }
-a{
+a,h1,h2,h3,h4,h5,h6{
     text-decoration: none;
     color: white;
 }
 #box{
     width: 98%;
     margin: 0.5% 1% 1% 1%;
+    align-items: stretch;
 }
 
 footer {
@@ -23,7 +27,7 @@ footer {
     margin: 1em;
     padding: 1em;
     font-size: 0.7em;
-    background-color: #1F305E;
+    background-color: #d197e8;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0 ,0.5) ;
 }
 
@@ -42,16 +46,13 @@ footer {
 #home{
     display: flex;
     flex-direction: column;
-    margin: 4em 20em 3em 20em;
+    margin: 4em 5em 10em 5em;
     padding: 3em;
-    justify-self: center;
-    align-self: center;
-    background-color: #1F305E;
+    background-color: #74b4e2;
     background-size: cover;
+    border-radius: 2em;
+    box-shadow: 8px 5px 2px 2px rgba(0, 0, 0 ,0.2);
 }
 #home h1, h3, a{
-    color: white;
-    justify-content: center;
-    align-items: center;
     align-self: center;
 }
