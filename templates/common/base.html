@@ -5,28 +5,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cleanzy{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
 </head>
 <body>
     <div id="box">
         <header>
-            <nav>
+            <nav class="container-lg">
                 <img id="logo" src="{% static 'images/logo.png' %}" alt="logo">
                 <div id="main">
-                    <a href="{% url 'home' %}">Cleanzy</a>
-                    <p>Cleaning made easy!</p>
+                    <a href="{% url 'home' %}" class="display-1 text-decoration-none text-white">Cleanzy</a>
+                    <p class="display-2">Cleaning made easy!</p>
                 </div>
-                <ul>
-                    <li class="type-of-products"><a href="#">Kitchen</a></li>
-                    <li class="type-of-products"><a href="#">Bathroom</a></li>
-                    <li class="type-of-products"><a href="#">Multipurpose</a></li>
-                    <li class="type-of-products"><a href="#">Industrial</a></li>
-                    <li class="type-of-products"><a href="#">Make a request</a></li>
+                <ul >
+                    <li class="col"><a href="#">Products</a></li>
+                    <li class="col"><a href="#">Make a request</a></li>
                     {# {% if no user %} #}
-                        <li class="user"><a href="#">Log In</a></li>
-                        <li class="user"><a href="#">Register</a></li>
+                        <li class="col"><a href="#">Log In</a></li>
+                        <li class="col"><a href="#">Register</a></li>
                     {# {% else %} #}
-                        <li class="user"><a href="#">Profile</a></li>
-                        <li class="user"><a href="#">Log Out</a></li>
+                        <li class="col"><a href="#">Profile</a></li>
+                        <li class="col"><a href="#">Log Out</a></li>
                     {# {% endif %} #}
                 </ul>
             </nav>
@@ -34,7 +35,7 @@
         {% block content %}
         {% endblock %}
         <footer>
-            <div><a href="{% url 'home' %}">Cleanzy!</a>Cleaning made easy!</div>
+            <div  class="container-fluid"><a href="{% url 'home' %}">Cleanzy!</a>Cleaning made easy!</div>
         </footer>
     </div>
 </body>

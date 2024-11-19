@@ -1,5 +1,9 @@
 {% extends 'common/base.html' %}
 {% block content %}
-    
+    {% for product in products %}
+        <p>{{ product.name }}</p>
+        <p>Price: {{ product.price }}</p>
+        <a href="{% url 'details-product' pk=product.pk %}">See more</a>
+    {% endfor %}
     
 {% endblock %}

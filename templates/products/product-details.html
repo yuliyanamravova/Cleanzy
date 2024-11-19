@@ -12,7 +12,9 @@
                 <h4>Ingredients: {{ product.ingredients }}</h4>
                 <h4>pH: {{ product.ph }}</h4>
                 <h4>Price: {{ product.price }}</h4>
-                <a href="#">Add to my request</a>
+                <a href="#">Add to my requests</a>
+                <a href="{% url 'edit-product' pk=product.pk %}">Edit</a>
+                <a href="{% url 'delete-product' pk=product.pk %}">Delete</a>
             </div>
         </div>
         </section>

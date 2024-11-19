@@ -3,7 +3,7 @@ from django.urls import path, include
 from Cleanzy.requests import views
 
 urlpatterns = [
-    path('', views.list_request, name='list-request'),
+    path('', views.ListRequestView.as_view(), name='list-request'),
     path('add/', views.CreateRequestView.as_view(), name='create-request'),
     path('<int:id>/', include([
         path('delete/', views.DeleteRequestView.as_view(), name='delete-request'),

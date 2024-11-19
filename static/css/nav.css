@@ -26,4 +26,6 @@ ul li{
 }
 li a{
     font-size: 1.5em;
+    text-decoration: none;
+    color: white;
 }

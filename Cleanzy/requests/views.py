@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView, ListView
 
 from Cleanzy.requests.forms import CreateRequestForm, DeleteRequestForm, EditRequestForm
 from Cleanzy.requests.models import Request
@@ -34,5 +34,8 @@ class EditRequestView(UpdateView):
     success_url = reverse_lazy('home')
 
 
-def list_request(request):
-    return render(request, 'requests/request-list.html')
+class ListRequestView(ListView):
+    paginate_by = 4
+    template_name = 'requests/request-list.html'
+    model = Request
+    context_object_name = 'requests'
