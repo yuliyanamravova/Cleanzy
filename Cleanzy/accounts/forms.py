@@ -1,11 +1,35 @@
 from django import forms
+from django.conf import settings
+from django.contrib.auth import get_user_model
 
-from Cleanzy.accounts.models import Account
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
+
+user = get_user_model()
 
 
+class CleanzyUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = user
+        fields = ('username', 'email',)
+
+
+class CleanzyUserChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = user
+        fields = ('username', 'email')
+
+
+class CleanzyUserLoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'autofocus': True, 'placeholder': 'Email'}))
+    password = forms.CharField(
+        label="Password", widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}),
+    )
+
+"""
 class AccountForm(forms.ModelForm):
     class Meta:
-        model = Account
+        model = user
         fields = '__all__'
 
 
@@ -23,6 +47,7 @@ class EditAccountForm(AccountForm):
 
 class LoginAccountForm(forms.ModelForm):
     class Meta:
-        model = Account
+        model = user
         fields = ['email', 'password']
 
+"""

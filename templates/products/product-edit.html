@@ -9,6 +9,7 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ form }}
+                    <img alt="Product Image" src="{{ form.photo }}">
                     <button type="submit">Edit Product</button>
                 </form>
             </div>

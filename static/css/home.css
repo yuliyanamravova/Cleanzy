@@ -3,25 +3,26 @@
     text-decoration: none;
     color: white;
 }
+html{
+}
 body{
-    width: 100%;
-    height: 100%;
     background: linear-gradient(158deg, rgba(127,202,255,0.7556343193860933) 0%, rgba(168,72,206,0.6045769175734045) 90%) no-repeat center center fixed;
     background-size: cover;
+    box-sizing: border-box;
+
 }
 a,h1,h2,h3,h4,h5,h6{
     text-decoration: none;
     color: white;
 }
 #box{
+    display: block;
     width: 100%;
-    margin: 0.5% 1% 1% 1%;
+    margin: 1% 1% 1% 0;
     align-items: stretch;
 }
 
 footer {
-    position: fixed;
-    width: 95%;
     left: 0;
     bottom: 0;
     color: white;
@@ -29,8 +30,8 @@ footer {
     margin: 1em;
     padding: 1em;
     font-size: 0.7em;
-    background-color: #d197e8;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0 ,0.5) ;
+    /*background-color: #d197e8;*/
+    box-shadow: 8px 5px 10px 10px rgba(0, 0, 0 ,0.1);
 }
 
 #main{
@@ -48,12 +49,12 @@ footer {
 #home{
     display: flex;
     flex-direction: column;
-    margin: 4em 5em 10em 5em;
+    margin: 2em;
     padding: 3em;
-    background-color: #74b4e2;
+    /*background-color: #74b4e2;*/
     background-size: cover;
     border-radius: 2em;
-    box-shadow: 8px 5px 2px 2px rgba(0, 0, 0 ,0.2);
+    box-shadow: 8px 5px 10px 2px rgba(0, 0, 0 ,0.2);
 }
 #home h1, h3, a{
     align-self: center;

@@ -13,6 +13,7 @@ class Product(models.Model):
     name = models.CharField(
         max_length=20
     )
+    photo = models.ImageField(upload_to='images/', default='images/default-product.jpg')
     code = models.CharField(
         validators=[length_validator]
     )

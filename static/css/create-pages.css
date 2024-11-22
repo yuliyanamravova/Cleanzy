@@ -5,29 +5,55 @@
     align-self: center;
 }
 #create-page .wrapper{
-    padding: 2em;
+    width: 50%;
+    padding: 5%;
+    line-height: 2em;
+}
+.heading *{
+
+    font-weight: bold;
+    text-shadow: rebeccapurple 1px 0 0.5px;
+}
+#id_photo{
+    align-self: center;
+    justify-self: center;
+
+}
+#file-upload-button{
+    color: mediumpurple;
 }
 form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 0 2em 0;
+}
+form input, textarea{
+    color: mediumpurple;
+    font-weight: bold;
 }
 label{
+    color: mediumpurple;
     text-decoration: none;
-    color: white;
     align-self: center;
     padding: 1em 0 0.2em 0;
+    font-weight: bold;
+    text-shadow: rebeccapurple 1px 0 0.5px;
 }
-input, textarea{
+input, textarea, select{
     border-radius: 1em;
     border: #d197e8;
     padding: 0.5em;
     text-shadow: none;
+    color: mediumpurple;
+    font-weight: bold;
+}
+option{
+    text-shadow: none;
+    color: mediumpurple;
+    font-weight: bold;
 }
 button{
-    border-radius: 1em;
-    width: 50%;
+    width: auto;
     padding: 0.8em;
     align-self: center;
     color: #d197e8;
@@ -35,6 +61,6 @@ button{
     background: #f1e1f7;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0 ,0.1);
     border: none;
-    margin: 1em;
     text-shadow: white 1px 0 7px;
+    text-wrap: none;
 }

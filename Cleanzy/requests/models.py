@@ -1,7 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
-from Cleanzy.accounts.models import Account
 from Cleanzy.products.models import Product
+
+
+user = get_user_model()  # Reference it dynamically
 
 # Create your models here.
 CHOICES = [
@@ -19,4 +22,4 @@ class Request(models.Model):
     date = models.DateTimeField(
         auto_now=True,
     )
-    author = models.ForeignKey(to=Account, on_delete=models.CASCADE)
+    author = models.ForeignKey(to=user, on_delete=models.CASCADE)

@@ -1,6 +1,6 @@
 {% extends 'common/base.html' %}
 {% block content %}
-        <section id="create-page">
+    <section id="create-page">
         <div class="wrapper">
             <div class="heading">
                 <h1>Create Request:</h1>
@@ -9,7 +9,7 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ form }}
-                    <button type="submit">Create Request</button>
+                    <button type="submit" class="m-2">Create Request</button>
                 </form>
             </div>
         </div>

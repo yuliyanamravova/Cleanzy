@@ -11,8 +11,14 @@ from Cleanzy.requests.models import Request
 class CreateRequestView(CreateView):
     model = Request
     form_class = CreateRequestForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('details-request', kwargs={'pk'})
     template_name = 'requests/request-create.html'
+
+    def form_valid(self, form):
+        request = form.save(commit=False)
+        request.user = self.request.user
+        request.save()
+        return super().form_valid(form)
 
 
 class DeleteRequestView(DeleteView):

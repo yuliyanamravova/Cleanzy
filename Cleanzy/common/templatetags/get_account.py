@@ -4,6 +4,6 @@ from Cleanzy.utils import get_account
 
 register = template.Library()
 
-@register.simple_tag
-def get_current_account():
-    return get_account()
+@register.simple_tag(takes_context=True)
+def get_current_account(context):
+    return get_account(context)
