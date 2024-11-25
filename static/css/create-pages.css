@@ -10,7 +10,6 @@
     line-height: 2em;
 }
 .heading *{
-
     font-weight: bold;
     text-shadow: rebeccapurple 1px 0 0.5px;
 }
@@ -32,14 +31,16 @@ form input, textarea{
     font-weight: bold;
 }
 label{
+    font-size: 1.2em;
     color: mediumpurple;
     text-decoration: none;
     align-self: center;
     padding: 1em 0 0.2em 0;
     font-weight: bold;
-    text-shadow: rebeccapurple 1px 0 0.5px;
+    text-shadow: rebeccapurple 0.5px 0 0.5px;
 }
 input, textarea, select{
+
     border-radius: 1em;
     border: #d197e8;
     padding: 0.5em;
@@ -52,9 +53,11 @@ option{
     color: mediumpurple;
     font-weight: bold;
 }
-button{
+
+form button{
     width: auto;
-    padding: 0.8em;
+    padding: 0.5em 2em;
+    font-size: 1.5em;
     align-self: center;
     color: #d197e8;
     font-weight: bold;
@@ -63,4 +66,26 @@ button{
     border: none;
     text-shadow: white 1px 0 7px;
     text-wrap: none;
+    margin-top: 1em;
+}
+form button:hover{
+    color: #f1e1f7;
+    background: mediumpurple;
+    text-shadow: none;
+}
+.form p a{
+    color: mediumpurple;
+    text-shadow: rebeccapurple 1px 0 0.6px;
+}
+.helptext ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: center;
+    line-height: 1em;
+    padding: 0;
+}
+.helptext{
+    display: flex;
+    justify-self: center;
 }

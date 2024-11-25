@@ -15,23 +15,24 @@
     <div id="box" >
         <header>
             <nav>
-                <img id="logo" src="{% static 'media/images/logo.png' %}" alt="logo">
+                <img id="logo" src="{% static '/images/logo.png' %}" alt="logo">
                 <div id="main">
                     <a href="{% url 'home' %}" class="display-1 text-decoration-none text-white">Cleanzy</a>
                     <p class="display-2">Cleaning made easy!</p>
                 </div>
                 <ul >
-                    <li class="col"><a href="#">Products</a></li>
-                    <li class="col"><a href="{% url 'create-request' %}">Make a request</a></li>
+                    <li class="col"><a href="{% url 'catalogue' %}">Products</a></li>
+                    <li class="col"><a href="{% url 'create-request' %}">Make a Request</a></li>
                     {% get_current_account as user_status %}
                     {% if not user_status %}
                         <li class="col"><a href="{% url 'login' %}">Log In</a></li>
                         <li class="col"><a href="{% url 'register' %}">Register</a></li>
                     {% else %}
+                        <li class="col"><a href="#">My Request</a> </li>
                         <li class="col"><a href="{% url 'profile-details' request.user.pk %}">Profile</a></li>
                         <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
-                            <button>Log Out</button>
+                            <li><button type="submit" class="logout">Log Out</button></li>
                         </form>
 
                     {% endif %}

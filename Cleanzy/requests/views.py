@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView, ListView
@@ -8,11 +9,13 @@ from Cleanzy.requests.models import Request
 
 # Create your views here.
 
-class CreateRequestView(CreateView):
+class CreateRequestView(LoginRequiredMixin,CreateView):
     model = Request
     form_class = CreateRequestForm
     success_url = reverse_lazy('details-request', kwargs={'pk'})
     template_name = 'requests/request-create.html'
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'next'
 
     def form_valid(self, form):
         request = form.save(commit=False)

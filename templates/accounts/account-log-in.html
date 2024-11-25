@@ -9,8 +9,12 @@
             <div class="form">
                 <form method="post">
                     {% csrf_token %}
-                      {{ form }}
-                      <button type="submit">Log In</button>
+
+                    {{ form }}
+
+                    <button type="submit">Log In</button>
+
+                    <p>You don't have an account?<a href="{% url 'register' %}" class="text-decoration-none text-">Register here.</a></p>
                 </form>
             </div>
         </div>

@@ -1,9 +1,13 @@
 {% extends 'common/base.html' %}
 {% block content %}
+    <div class="catalogue">
     {% for product in products %}
-        <p>{{ product.name }}</p>
-        <p>Price: {{ product.price }}</p>
-        <a href="{% url 'details-product' pk=product.pk %}">See more</a>
+        <div class="product">
+            <p>{{ product.name }}</p>
+            <p>Price: {{ product.price }}</p>
+            <a href="{% url 'details-product' pk=product.pk %}">See more</a>
+            <a href="{% url 'create-request' %}">Make a request</a>
+        </div>
     {% endfor %}
-    
+    </div>
 {% endblock %}
