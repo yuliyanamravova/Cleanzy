@@ -34,7 +34,7 @@ class Product(models.Model):
     )
     price = models.DecimalField(decimal_places=2, max_digits=5)
     instructions = models.TextField()
-    group = models.ForeignKey(ProductGroups, on_delete=models.CASCADE)
+    """group = models.ForeignKey(ProductGroups, on_delete=models.CASCADE)"""
 
     def __str__(self):
         return self.name
