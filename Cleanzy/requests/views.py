@@ -9,26 +9,32 @@ from Cleanzy.requests.models import Request
 
 # Create your views here.
 
-class CreateRequestView(LoginRequiredMixin,CreateView):
+class CreateRequestView(LoginRequiredMixin, CreateView):
     model = Request
     form_class = CreateRequestForm
-    success_url = reverse_lazy('details-request', kwargs={'pk'})
     template_name = 'requests/request-create.html'
-    login_url = reverse_lazy('login')
+    success_url = reverse_lazy('list-request')
+    login_url = 'login'
     redirect_field_name = 'next'
 
     def form_valid(self, form):
         request = form.save(commit=False)
-        request.user = self.request.user
-        request.save()
+        request.author = self.request.user
         return super().form_valid(form)
 
 
 class DeleteRequestView(DeleteView):
     model = Request
     form_class = DeleteRequestForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('list-request')
+    template_name = 'requests/request-delete.html'
     pk_url_kwarg = 'id'
+
+    def get_initial(self):
+        return self.object.__dict__
+
+    def form_invalid(self, form):
+        return self.form_valid(form)
 
 
 class DetailRequestView(DetailView):
@@ -40,7 +46,8 @@ class EditRequestView(UpdateView):
     pk_url_kwarg = 'id'
     model = Request
     form_class = EditRequestForm
-    success_url = reverse_lazy('home')
+    template_name = 'requests/request-edit.html'
+    success_url = reverse_lazy('list-request')
 
 
 class ListRequestView(ListView):

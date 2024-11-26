@@ -9,16 +9,15 @@
             </div>
             <div class="info">
                 <h4>Description: {{ product.description }}</h4>
-                {% if product.photo == 'default-product.jpg' %}
-                    <img src="{% static 'media/images/default-product.jpg' %}" alt="Default Image" />
-                {% elif product.photo %}
+
+                {% if product.photo %}
                     <h4><img src="{{ product.photo.url }}" alt="Product Image" /></h4>
                 {% endif %}
                 <h4>Instructions: {{ product.instructions }}</h4>
                 <h4>Ingredients: {{ product.ingredients }}</h4>
                 <h4>pH: {{ product.ph }}</h4>
                 <h4>Price: {{ product.price }}</h4>
-                <a href="#">Add to my requests</a>
+                <a href="{% url 'create-request' %}">Make a request</a>
                 <a href="{% url 'edit-product' pk=product.pk %}">Edit</a>
                 <a href="{% url 'delete-product' pk=product.pk %}">Delete</a>
             </div>

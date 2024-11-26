@@ -25,8 +25,14 @@ class CreateProductView(CreateView):
 class DeleteProductView(DeleteView):
     model = Product
     form_class = DeleteProductForm
-    success_url = reverse_lazy('catalogue')
     template_name = 'products/product-delete.html'
+    success_url = reverse_lazy('catalogue')
+
+    def get_initial(self):
+        return self.object.__dict__
+
+    def form_invalid(self, form):
+        return self.form_valid(form)
 
 
 class DetailProductView(DetailView):

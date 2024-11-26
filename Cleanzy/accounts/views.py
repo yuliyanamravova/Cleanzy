@@ -17,7 +17,7 @@ user = get_user_model()
 class UserRegisterView(CreateView):
     model = user
     form_class = CleanzyUserCreationForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
     template_name = 'accounts/account-register.html'
 
     """def form_valid(self, form):

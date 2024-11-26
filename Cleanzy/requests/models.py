@@ -16,7 +16,7 @@ CHOICES = [
 
 
 class Request(models.Model):
-    products = models.ManyToManyField(to=Product, related_name='products',)
+    products = models.ForeignKey(to=Product, related_name='product', on_delete=models.CASCADE)
     package_type = models.CharField(choices=CHOICES, default='5 Litre', max_length=20)
     quantity = models.IntegerField()
     date = models.DateTimeField(

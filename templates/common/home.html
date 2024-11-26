@@ -15,11 +15,9 @@
         <a href="{% url 'delete-request' id=1%}" class=".text-center">Delete Request!</a>
         <a href="{% url 'details-request' id=1%}" class=".text-center">Details Request!</a>
         <a href="{% url 'edit-request' id=1%}" class=".text-center">Edit Request!</a>
-        <a href="#" class=".text-center">Register!</a>
+        <a href="{% url 'register' %}" class=".text-center">Register!</a>
         <!--<a href="#" class=".text-center">Delete Account!</a>
         <a href="#" class=".text-center">Details Account!</a>
-        <a href="#" class=".text-center">Edit Account!</a>
-        <a href="#" class=".text-center">Log In!</a>
-        <a href="#" class=".text-center">Log out!</a>-->
+        <a href="#" class=".text-center">Edit Account!</a>-->
     </div>
 {% endblock %}

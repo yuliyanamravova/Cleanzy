@@ -10,6 +10,9 @@
                     {% csrf_token %}
                     {{ form }}
                     <button type="submit">Delete Product</button>
+                    <a href="javascript:history.back()">
+                        <button type="button">Go back</button>
+                    </a>
                 </form>
             </div>
         </div>

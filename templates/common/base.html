@@ -28,7 +28,7 @@
                         <li class="col"><a href="{% url 'login' %}">Log In</a></li>
                         <li class="col"><a href="{% url 'register' %}">Register</a></li>
                     {% else %}
-                        <li class="col"><a href="#">My Request</a> </li>
+                        <li class="col"><a href="{% url 'list-request' %}">My Requests</a> </li>
                         <li class="col"><a href="{% url 'profile-details' request.user.pk %}">Profile</a></li>
                         <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}

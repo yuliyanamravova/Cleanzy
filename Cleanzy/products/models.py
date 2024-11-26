@@ -9,6 +9,13 @@ def length_validator(code):
         raise ValidationError('Product code must be exactly 6 digits!')
 
 
+"""class ProductGroups(models.Model):
+    name = models.CharField(
+        max_length=20
+    )
+    description = models.TextField()"""
+
+
 class Product(models.Model):
     name = models.CharField(
         max_length=20
@@ -27,6 +34,12 @@ class Product(models.Model):
     )
     price = models.DecimalField(decimal_places=2, max_digits=5)
     instructions = models.TextField()
+    group = models.ForeignKey(ProductGroups, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
+
+"""class Stock(models.Model):
+    product = models.ForeignKey(Product, models.CASCADE)
+    in_stock = models.PositiveIntegerField()"""

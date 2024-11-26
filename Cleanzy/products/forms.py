@@ -14,7 +14,11 @@ class CreateProductForm(ProductForm):
 
 
 class DeleteProductForm(ProductForm):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs['disabled'] = True
 
 
 class EditProductForm(ProductForm):

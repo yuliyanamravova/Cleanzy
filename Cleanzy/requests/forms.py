@@ -16,8 +16,19 @@ class CreateRequestForm(RequestForm):
 
 
 class EditRequestForm(RequestForm):
-    pass
+    class Meta:
+        model =Request
+        exclude = ('author', 'date', )
 
 
 class DeleteRequestForm(RequestForm):
-    pass
+    class Meta:
+        model = Request
+        exclude = ('author', 'date',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs['readonly'] = True
+            field.widget.attrs['disabled'] = True

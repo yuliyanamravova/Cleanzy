@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load static %}
 {% block content %}
     <section id="create-page">
         <div class="wrapper">
@@ -8,9 +9,11 @@
             <div class="form">
                 <form method="post">
                     {% csrf_token %}
+                    {% if product.photo %}
+                        <h4><img src="{{ product.photo.url }}" alt="Product Image" /></h4>
+                    {% endif %}
                     {{ form }}
-                    <img alt="Product Image" src="{{ form.photo }}">
-                    <button type="submit">Edit Product</button>
+                        <button type="submit">Edit Product</button>
                 </form>
             </div>
         </div>

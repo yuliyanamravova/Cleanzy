@@ -8,6 +8,7 @@
 .wrapper {
     display: flex;
     margin: 3em 3em 5em 3em;
+    padding: 3em 2em;
     justify-content: center;
     align-items: center;
     /* background: #74b4e2; */
@@ -18,7 +19,7 @@
 .info{
     align-items: center;
     justify-content: center;
-    padding: 3em;
+    padding: 1em;
     color: white;
     text-decoration: none;
 }

@@ -1,0 +1,23 @@
+.catalogue{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.product, .request {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    padding: 2em;
+    border: medium white dotted;
+    box-shadow: 8px 5px 10px 10px rgba(255, 255, 255 ,0.1);
+}
+.product a{
+    text-decoration: none;
+    color: #052c65;
+
+}
