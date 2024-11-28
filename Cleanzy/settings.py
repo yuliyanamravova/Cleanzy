@@ -35,7 +35,9 @@ MY_APPS = [
     'Cleanzy.accounts',
     'Cleanzy.common',
     'Cleanzy.products',
-    'Cleanzy.requests'
+    'Cleanzy.requests',
+    'Cleanzy.warehouses',
+    'Cleanzy.companies',
 ]
 
 INSTALLED_APPS = [
