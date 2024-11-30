@@ -1,4 +1,5 @@
 {% load static %}
+{% load filters %}
 {% load  get_account %}
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@
                     {% else %}
                         <li class="col"><a href="{% url 'list-request' %}">My Requests</a> </li>
                         <li class="col"><a href="{% url 'profile-details' request.user.pk %}">Profile</a></li>
-                        <form method="post" action="{% url 'logout' %}">
+                        <form method="post" action="{% url 'logout' request.user.pk %}">
                         {% csrf_token %}
                             <li><button type="submit" class="logout">Log Out</button></li>
                         </form>

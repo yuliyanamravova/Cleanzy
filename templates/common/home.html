@@ -16,8 +16,16 @@
         <a href="{% url 'details-request' id=1%}" class=".text-center">Details Request!</a>
         <a href="{% url 'edit-request' id=1%}" class=".text-center">Edit Request!</a>
         <a href="{% url 'register' %}" class=".text-center">Register!</a>
-        <!--<a href="#" class=".text-center">Delete Account!</a>
-        <a href="#" class=".text-center">Details Account!</a>
+        <a href="{% url 'add-company' %}" class=".text-center">Add company!</a>
+        <a href="{% url 'edit-company' pk=1%}" class=".text-center">Edit Company!</a>
+        <a href="{% url 'delete-company' pk=1%}" class=".text-center">Delete Company!</a>
+        <a href="{% url 'detail-company' pk=1%}" class=".text-center">Detail Company!</a>
+        <a href="{% url 'add-warehouse' %}" class=".text-center">Add Warehouse!</a>
+        <a href="{% url 'edit-warehouse' pk=1%}" class=".text-center">Edit Warehouse!</a>
+        <a href="{% url 'delete-warehouse' pk=1%}" class=".text-center">Delete Warehouse!</a>
+        <a href="{% url 'detail-warehouse' pk=1 %}" class=".text-center">Detail Warehouse!</a>
+        <a href="{% url 'user-delete' request.user.pk %}" class=".text-center">Delete Account!</a>
+        <!--<a href="#" class=".text-center">Details Account!</a>
         <a href="#" class=".text-center">Edit Account!</a>-->
     </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, UpdateView, DetailView
 
@@ -29,6 +29,20 @@ class UserRegisterView(CreateView):
 class UserLoginView(LoginView):
     form_class = CleanzyUserLoginForm
     template_name = 'accounts/account-log-in.html'
+
+
+class UserDeleteView(DeleteView):
+    model = user
+    template_name = 'accounts/account-delete.html'
+    success_url = 'home'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def delete(self, request, *args, **kwargs):
+        user = self.get_object()
+        user.delete()
+        return redirect(self.get_success_url())
 
 
 def details_account(request, pk):

@@ -15,6 +15,9 @@ class AddWarehouseView(CreateView):
     success_url = reverse_lazy('home')
     template_name = 'warehouses/warehouse-add.html'
 
+    def get_success_url(self):
+        return reverse_lazy('detail-warehouse', kwargs={'pk': self.object.pk})
+
 
 class EditWarehouseView(UpdateView):
     form_class = EditWarehouseForm
@@ -22,12 +25,21 @@ class EditWarehouseView(UpdateView):
     success_url = reverse_lazy('home')
     template_name = 'warehouses/warehouse-edit.html'
 
+    def get_success_url(self):
+        return reverse_lazy('detail-warehouse', kwargs={'pk': self.object.pk})
+
 
 class DeleteWarehouseView(DeleteView):
     form_class = DeleteWarehouseForm
     model = Warehouse
     success_url = reverse_lazy('home')
     template_name = 'warehouses/warehouse-delete.html'
+
+    def get_initial(self):
+        return self.object.__dict__
+
+    def form_invalid(self, form):
+        return self.form_valid(form)
 
 
 class DetailsWarehouseView(DetailView):

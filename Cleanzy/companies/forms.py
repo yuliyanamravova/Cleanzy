@@ -7,6 +7,12 @@ class CompanyBaseForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
+        labels = {
+            'name': 'Name',
+            'address': 'Address',
+            'vat_uic_number': 'VAT/UIC',
+            'phone_number': 'Phone Number'
+        }
 
 
 class AddCompanyForm(CompanyBaseForm):

@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% block content %}
+    <section id="details-page">
+        <div class="wrapper">
+            <div class="heading">
+                <h1>Company Details:</h1>
+                <h2>{{ company.name }}</h2>
+            </div>
+            <div class="info">
+                <h4>Address: {{ company.address }}</h4>
+                <h4>VAT/UIC: {{ company.vat_uic_number }}</h4>
+                <h4>Phone Number: {{ company.phone_number }}</h4>
+                <a href="{% url 'edit-company' pk=company.pk %}">Edit</a>
+                <a href="{% url 'delete-company' pk=company.pk %}">Delete</a>
+            </div>
+        </div>
+        </section>
+{% endblock %}

@@ -22,6 +22,9 @@ class CreateRequestView(LoginRequiredMixin, CreateView):
         request.author = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse_lazy('details-request', kwargs={'pk': self.object.pk})
+
 
 class DeleteRequestView(DeleteView):
     model = Request
@@ -48,6 +51,9 @@ class EditRequestView(UpdateView):
     form_class = EditRequestForm
     template_name = 'requests/request-edit.html'
     success_url = reverse_lazy('list-request')
+
+    def get_success_url(self):
+        return reverse_lazy('details-request', kwargs={'pk': self.object.pk})
 
 
 class ListRequestView(ListView):

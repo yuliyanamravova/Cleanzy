@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
+{% block content %}
+    <section id="details-page">
+        <div class="wrapper">
+            <div class="heading">
+                <h1>Warehouse Details:</h1>
+                <h2>{{ warehouse.town }}</h2>
+            </div>
+            <div class="info">
+                <h4>Address: {{ warehouse.address }}</h4>
+                <h4>Phone Number: {{ warehouse.phone_number }}</h4>
+                <h4>Products:
+                    {% for product in warehouse.products.all %}
+                        {% if product %}
+                            {{ product }}
+                        {% else %}
+                            No products!
+                        {% endif %}
+                    {% endfor %}
+                </h4>
+                <a href="{% url 'edit-warehouse' pk=warehouse.pk %}">Edit</a>
+                <a href="{% url 'delete-warehouse' pk=warehouse.pk %}">Delete</a>
+            </div>
+        </div>
+        </section>
 
-</body>
-</html>
+{% endblock %}

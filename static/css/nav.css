@@ -1,5 +1,4 @@
 nav{
-    /*background-color: #74b4e2;*/
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -20,8 +19,9 @@ img{
 }
 #main p{
     font-size: 2em;
-    color: white;
     margin: 0.2em;
+    color: rebeccapurple;
+    text-shadow: white 1px 0 7px;
 }
 nav ul{
     display: flex;
@@ -45,7 +45,6 @@ nav ul li a{
     font-size: 1.7rem;
     text-decoration: none;
     color: white;
-    font-weight: bold;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -61,4 +60,149 @@ nav ul li a{
     text-shadow: dimgray 1px 0 7px;
     text-wrap: none;
     margin: 0 0.5em;
+}
+/* Add animations to links, images, and the nav bar */
+
+/* Navigation Links */
+nav ul li a {
+    position: relative; /* For hover effects */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+nav ul li a:hover {
+    color: rebeccapurple;
+    text-shadow: white 1px 0 7px;/* Highlight effect on hover */
+    transform: translateY(-3px); /* Lift animation */
+}
+
+/* Underline Animation */
+nav ul li a::after {
+    content: ''; /* Decorative underline */
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Navigation Bar Slide-in */
+nav {
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Image Hover Animation */
+img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition for scaling and shadow */
+}
+
+img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Logout Button */
+.logout {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logout:hover {
+    transform: scale(1.1); /* Subtle zoom on hover */
+    color: #74b4e2; /* Highlight effect */
+}
+
+/* Responsive Enhancements with Fade */
+@media (max-width: 768px) {
+    nav ul li {
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    nav {
+        flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+        padding: 1em; /* Adjust padding */
+    }
+
+    img {
+        block-size: 7em; /* Reduce size for smaller screens */
+        margin: 0.5em;
+    }
+
+    nav ul {
+        justify-content: center; /* Center-align items on smaller screens */
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0.3em; /* Reduce spacing between items */
+    }
+
+    nav ul li a {
+        font-size: 1.5rem; /* Scale down font size */
+    }
+
+    .logout {
+        font-size: 1.5em; /* Adjust button size for smaller screens */
+        margin: 0.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    img {
+        block-size: 5em; /* Further reduce size for very small screens */
+    }
+
+    #main a {
+        font-size: 2em; /* Reduce main link size */
+    }
+
+    #main p {
+        font-size: 1.5em; /* Scale paragraph text */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.2em 0; /* Adjust spacing for stacked layout */
+    }
+
+    nav ul li a {
+        font-size: 1.2rem; /* Further reduce font size */
+    }
+
+    .logout {
+        font-size: 1.3em; /* Scale logout button */
+    }
 }

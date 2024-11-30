@@ -1,4 +1,4 @@
-.catalogue{
+/*.catalogue{
     display: flex;
     width: 50%;
     justify-content: center;
@@ -20,4 +20,102 @@
     text-decoration: none;
     color: #052c65;
 
+}*/
+.catalogue {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2em 1em;
+    padding: 1em;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Product Card */
+.product, .request {
+    background: rgba(0, 0, 0, 0.1); /* Dark semi-transparent background for contrast */
+    border-radius: 1em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+    padding: 4em 7em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Hover Effects */
+.product:hover, .request:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Text */
+.product p, .request p {
+    margin: 0.5em 0;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.product p:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Buttons (Links) */
+.product a, .request a {
+    display: inline-block;
+    margin: 0.5em;
+    padding: 0.6em 1.2em;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.5em;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.product a:hover, .request a:hover {
+    background: white;
+    color: #333;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .catalogue {
+        gap: 1rem;
+    }
+    .product, .request {
+        padding: 1em;
+    }
+    .product p, .request p {
+        font-size: 0.9rem;
+    }
+    .product a, .request a {
+        font-size: 0.8rem;
+        padding: 0.5em 1em;
+    }
+}
+
+/* Animations */
+.catalogue {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

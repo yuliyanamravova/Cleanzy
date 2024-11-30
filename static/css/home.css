@@ -15,17 +15,14 @@ a,h1,h2,h3,h4,h5,h6{
 }
 #box{
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100vh - 4.5em);
     width: 100%;
     margin-bottom: 1em;
 }
-
-
 footer {
     left: 0;
     bottom: 1em;
     color: white;
-    font-weight: bold;
     padding: 1em;
     font-size: 1.2em;
     box-shadow: 8px 5px 10px 10px rgba(0, 0, 0 ,0.1);
@@ -35,7 +32,8 @@ footer {
 }
 footer div a{
     text-decoration: none;
-    color: #052c65;
+    color: rebeccapurple;
+    text-shadow: white 1px 0 7px;
 }
 
 #home{

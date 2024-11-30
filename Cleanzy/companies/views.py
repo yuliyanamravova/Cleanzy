@@ -15,6 +15,9 @@ class AddCompanyView(CreateView):
     success_url = reverse_lazy('home')
     form_class = AddCompanyForm
 
+    def get_success_url(self):
+        return reverse_lazy('detail-company', kwargs={'pk': self.object.pk})
+
 
 class DeleteCompanyView(DeleteView):
     template_name = 'companies/company-delete.html'
@@ -22,12 +25,21 @@ class DeleteCompanyView(DeleteView):
     success_url = reverse_lazy('home')
     form_class = DeleteCompanyForm
 
+    def get_initial(self):
+        return self.object.__dict__
+
+    def form_invalid(self, form):
+        return self.form_valid(form)
+
 
 class EditCompanyView(UpdateView):
     template_name = 'companies/company-edit.html'
     model = Company
     success_url = reverse_lazy('home')
     form_class = EditCompanyForm
+
+    def get_success_url(self):
+        return reverse_lazy('detail-company', kwargs={'pk': self.object.pk})
 
 
 class DetailCompanyView(DetailView):

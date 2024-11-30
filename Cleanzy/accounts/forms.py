@@ -25,29 +25,3 @@ class CleanzyUserLoginForm(AuthenticationForm):
     password = forms.CharField(
         label="Password", widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'placeholder': 'Password'}),
     )
-
-"""
-class AccountForm(forms.ModelForm):
-    class Meta:
-        model = user
-        fields = '__all__'
-
-
-class CreateAccountForm(AccountForm):
-    pass
-
-
-class DeleteAccountForm(AccountForm):
-    pass
-
-
-class EditAccountForm(AccountForm):
-    pass
-
-
-class LoginAccountForm(forms.ModelForm):
-    class Meta:
-        model = user
-        fields = ['email', 'password']
-
-"""
