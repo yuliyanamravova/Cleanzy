@@ -40,8 +40,8 @@ class UserDeleteView(DeleteView):
         return self.request.user
 
     def delete(self, request, *args, **kwargs):
-        user = self.get_object()
-        user.delete()
+        user1 = self.get_object()
+        user1.delete()
         return redirect(self.get_success_url())
 
 
