@@ -25,3 +25,4 @@ class AppUserAdmin(UserAdmin):
     )
     search_fields = ('username', 'email',)
     ordering = ('pk',)
+    readonly_fields = ('last_login',)

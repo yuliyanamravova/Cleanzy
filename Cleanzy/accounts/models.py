@@ -1,11 +1,9 @@
 from django.apps import apps
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import PermissionsMixin, AbstractUser
+from django.contrib.auth.models import PermissionsMixin, AbstractUser, Group
 from django.db import models
-
 from Cleanzy.companies.models import Company
-
 
 # Create your models here.
 

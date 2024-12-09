@@ -33,7 +33,7 @@
                         <li class="col"><a href="{% url 'profile-details' request.user.pk %}">Profile</a></li>
                         <form method="post" action="{% url 'logout' request.user.pk %}">
                         {% csrf_token %}
-                            <li><button type="submit" class="logout">Log Out</button></li>
+                            <li><button type="submit" class="logout col">Log Out</button></li>
                         </form>
 
                     {% endif %}

@@ -41,7 +41,7 @@ nav ul li{
     align-items: center;
     flex-direction: column;
 }
-nav ul li a{
+nav ul li a, .logout{
     font-size: 1.7rem;
     text-decoration: none;
     color: white;
@@ -68,11 +68,21 @@ nav ul li a {
     position: relative; /* For hover effects */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
 }
+.logout{
+    position: relative; /* For hover effects */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
 
 nav ul li a:hover {
     color: rebeccapurple;
     text-shadow: white 1px 0 7px;/* Highlight effect on hover */
     transform: translateY(-3px); /* Lift animation */
+}
+.logout:hover {
+    color: rebeccapurple;
+    text-shadow: white 1px 0 7px;/* Highlight effect on hover */
+    transform: translateY(-3px); /* Lift animation */
+    background: none;
 }
 
 /* Underline Animation */
@@ -86,8 +96,20 @@ nav ul li a::after {
     background: white;
     transition: width 0.3s ease;
 }
-
+.logout::after {
+    content: ''; /* Decorative underline */
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
 nav ul li a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+.logout:hover::after {
     width: 100%; /* Expand underline on hover */
 }
 
@@ -117,15 +139,6 @@ img:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
 }
 
-/* Logout Button */
-.logout {
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.logout:hover {
-    transform: scale(1.1); /* Subtle zoom on hover */
-    color: #74b4e2; /* Highlight effect */
-}
 
 /* Responsive Enhancements with Fade */
 @media (max-width: 768px) {

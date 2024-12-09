@@ -8,7 +8,7 @@ urlpatterns = [
     path('login/', views.UserLoginView.as_view(), name='login'),
 
     path('<int:pk>/', include([
-        path('', views.details_account, name='profile-details'),
+        path('', views.DetailsAccountView.as_view(), name='profile-details'),
         path('logout/', LogoutView.as_view(), name='logout'),
         path('delete/', views.UserDeleteView.as_view(), name='user-delete')
     ]))

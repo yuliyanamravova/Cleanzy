@@ -1,31 +1,39 @@
 {% extends 'common/base.html' %}
+{% load  get_account %}
 {% block content %}
     <div id="home" >
         <h1 class="display-3 text-center" >Welcome to the world of cleaning!</h1>
         <h3><a href="{% url 'catalogue' %}" class=".text-center text-decoration-none text-white">Take a look at our products</a></h3>
     </div>
     <div id ="home">
+        {% get_current_account as user_status %}
+        {% if user_status %}
+            {% if user.is_staff %}
+                <a href="{% url 'create-product' %}" class="text-center text-decoration-none text-white">Create Product!</a>
+                <a href="{% url 'delete-product' pk=1 %}" class="text-center text-decoration-none text-white">Delete Product!</a>
+                <a href="{% url 'edit-product' pk=1%}" class=".text-center text-decoration-none text-white">Edit Product!</a>
+                <a href="{% url 'add-warehouse' %}" class=".text-center">Add Warehouse!</a>
+                <a href="{% url 'edit-warehouse' pk=1%}" class=".text-center">Edit Warehouse!</a>
+                <a href="{% url 'delete-warehouse' pk=1%}" class=".text-center">Delete Warehouse!</a>
+                <!--<a href="{#  #} url 'user-delete' %}" class=".text-center">Delete Account!</a>
+                <a href="#" class=".text-center">Details Account!</a>
+                <a href="#" class=".text-center">Edit Account!</a>-->
+            {% endif %}
+                <a href="{% url 'detail-warehouse' pk=1 %}" class=".text-center">Detail Warehouse!</a>
+            <a href="{% url 'details-product' pk=1%}" class=".text-center text-decoration-none text-white">Details Product!</a>
+            <a href="{% url 'list-request' %}" class=".text-center text-decoration-none text-white">Request List!</a>
 
-        <a href="{% url 'create-product' %}" class="text-center text-decoration-none text-white">Create Product!</a>
-        <a href="{% url 'delete-product' pk=1 %}" class="text-center text-decoration-none text-white">Delete Product!</a>
-        <a href="{% url 'details-product' pk=1%}" class=".text-center text-decoration-none text-white">Details Product!</a>
-        <a href="{% url 'edit-product' pk=1%}" class=".text-center text-decoration-none text-white">Edit Product!</a>
-        <a href="{% url 'list-request' %}" class=".text-center text-decoration-none text-white">Request List!</a>
-        <a href="{% url 'create-request' %}" class=".text-center text-decoration-none text-white">Create Request!</a>
-        <a href="{% url 'delete-request' id=1%}" class=".text-center">Delete Request!</a>
-        <a href="{% url 'details-request' id=1%}" class=".text-center">Details Request!</a>
-        <a href="{% url 'edit-request' id=1%}" class=".text-center">Edit Request!</a>
-        <a href="{% url 'register' %}" class=".text-center">Register!</a>
-        <a href="{% url 'add-company' %}" class=".text-center">Add company!</a>
-        <a href="{% url 'edit-company' pk=1%}" class=".text-center">Edit Company!</a>
-        <a href="{% url 'delete-company' pk=1%}" class=".text-center">Delete Company!</a>
-        <a href="{% url 'detail-company' pk=1%}" class=".text-center">Detail Company!</a>
-        <a href="{% url 'add-warehouse' %}" class=".text-center">Add Warehouse!</a>
-        <a href="{% url 'edit-warehouse' pk=1%}" class=".text-center">Edit Warehouse!</a>
-        <a href="{% url 'delete-warehouse' pk=1%}" class=".text-center">Delete Warehouse!</a>
-        <a href="{% url 'detail-warehouse' pk=1 %}" class=".text-center">Detail Warehouse!</a>
-        <!--<a href="{#  #} url 'user-delete' %}" class=".text-center">Delete Account!</a>
-        <a href="#" class=".text-center">Details Account!</a>
-        <a href="#" class=".text-center">Edit Account!</a>-->
+            <a href="{% url 'delete-request' id=1%}" class=".text-center">Delete Request!</a>
+            <a href="{% url 'details-request' id=1%}" class=".text-center">Details Request!</a>
+            <a href="{% url 'edit-request' id=1%}" class=".text-center">Edit Request!</a>
+
+            <a href="{% url 'add-company' %}" class=".text-center">Add company!</a>
+            <a href="{% url 'edit-company' pk=1%}" class=".text-center">Edit Company!</a>
+            <a href="{% url 'delete-company' pk=1%}" class=".text-center">Delete Company!</a>
+            <a href="{% url 'detail-company' pk=1%}" class=".text-center">Detail Company!</a>
+        {% else %}
+            <a href="{% url 'register' %}" class=".text-center">Register!</a>
+            <a href="{% url 'create-request' %}" class=".text-center text-decoration-none text-white">Create Request!</a>
+    {% endif %}
     </div>
 {% endblock %}

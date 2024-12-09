@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator
 from django.db import models
 
 from Cleanzy.products.models import Product
@@ -18,7 +19,7 @@ CHOICES = [
 class Request(models.Model):
     products = models.ForeignKey(to=Product, related_name='product', on_delete=models.CASCADE)
     package_type = models.CharField(choices=CHOICES, default='5 Litre', max_length=20)
-    quantity = models.IntegerField()
+    quantity = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     date = models.DateTimeField(
         auto_now=True,
     )

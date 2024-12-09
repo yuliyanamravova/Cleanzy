@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
@@ -14,16 +15,18 @@ class AddCompanyView(CreateView):
     model = Company
     success_url = reverse_lazy('home')
     form_class = AddCompanyForm
+    permission_required = 'companies.add_companies'
 
     def get_success_url(self):
         return reverse_lazy('detail-company', kwargs={'pk': self.object.pk})
 
 
-class DeleteCompanyView(DeleteView):
+class DeleteCompanyView(PermissionRequiredMixin, DeleteView):
     template_name = 'companies/company-delete.html'
     model = Company
     success_url = reverse_lazy('home')
     form_class = DeleteCompanyForm
+    permission_required = 'companies.delete_companies'
 
     def get_initial(self):
         return self.object.__dict__
@@ -37,6 +40,7 @@ class EditCompanyView(UpdateView):
     model = Company
     success_url = reverse_lazy('home')
     form_class = EditCompanyForm
+    permission_required = 'companies.change_companies'
 
     def get_success_url(self):
         return reverse_lazy('detail-company', kwargs={'pk': self.object.pk})
@@ -45,3 +49,4 @@ class EditCompanyView(UpdateView):
 class DetailCompanyView(DetailView):
     template_name = 'companies/company-details.html'
     model = Company
+    permission_required = 'companies.view_companies'

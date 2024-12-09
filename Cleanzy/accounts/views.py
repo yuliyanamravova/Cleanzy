@@ -45,12 +45,13 @@ class UserDeleteView(DeleteView):
         return redirect(self.get_success_url())
 
 
-def details_account(request, pk):
-    account = user.objects.get(pk=pk)
-    context = {
-        'user': account,
-    }
-    return render(request, 'accounts/account-details.html', context=context)
+
+class DetailsAccountView(DetailView):
+    model = user
+    template_name = 'accounts/account-details.html'
+    pk_url_kwarg = 'pk'
+
+
 
 """
 class EditAccountView(UpdateView):
