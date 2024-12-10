@@ -1,9 +1,13 @@
 {% extends 'common/base.html' %}
 {% load  get_account %}
+{% load static %}
 {% block content %}
     <div id="home" >
         <h1 class="display-3 text-center" >Welcome to the world of cleaning!</h1>
         <h3><a href="{% url 'catalogue' %}" class=".text-center text-decoration-none text-white">Take a look at our products</a></h3>
+    </div>
+    <div id="home">
+        <img class="img" src="{% static 'images/home-page3.png' %}" alt="Cleaning Products">
     </div>
     <div id ="home">
         {% get_current_account as user_status %}
@@ -12,14 +16,10 @@
                 <a href="{% url 'create-product' %}" class="text-center text-decoration-none text-white">Create Product!</a>
                 <a href="{% url 'delete-product' pk=1 %}" class="text-center text-decoration-none text-white">Delete Product!</a>
                 <a href="{% url 'edit-product' pk=1%}" class=".text-center text-decoration-none text-white">Edit Product!</a>
-                <a href="{% url 'add-warehouse' %}" class=".text-center">Add Warehouse!</a>
-                <a href="{% url 'edit-warehouse' pk=1%}" class=".text-center">Edit Warehouse!</a>
-                <a href="{% url 'delete-warehouse' pk=1%}" class=".text-center">Delete Warehouse!</a>
-                <!--<a href="{#  #} url 'user-delete' %}" class=".text-center">Delete Account!</a>
-                <a href="#" class=".text-center">Details Account!</a>
-                <a href="#" class=".text-center">Edit Account!</a>-->
+                <a href="{% url 'api-add-warehouse' %}" class=".text-center">Add Warehouse!</a>
+                <a href="{% url 'api-warehouses-list'%}" class=".text-center">List of Warehouses!</a>
             {% endif %}
-                <a href="{% url 'detail-warehouse' pk=1 %}" class=".text-center">Detail Warehouse!</a>
+                <a href="{% url 'api-warehouse-detail' pk=1 %}" class=".text-center">Detail Warehouse!</a>
             <a href="{% url 'details-product' pk=1%}" class=".text-center text-decoration-none text-white">Details Product!</a>
             <a href="{% url 'list-request' %}" class=".text-center text-decoration-none text-white">Request List!</a>
 

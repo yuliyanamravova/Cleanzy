@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 {% load static %}
+{% load filters %}
 {% block content %}
     <section id="details-page">
         <div class="wrapper">
@@ -18,8 +19,13 @@
                 <h4>pH: {{ product.ph }}</h4>
                 <h4>Price: {{ product.price }}</h4>
                 <a href="{% url 'create-request' %}">Make a request</a>
-                <a href="{% url 'edit-product' pk=product.pk %}">Edit</a>
-                <a href="{% url 'delete-product' pk=product.pk %}">Delete</a>
+                {% if user|has_group:"Basic Staff,Moderators,Superusers" %}
+                    <a href="{% url 'edit-product' pk=product.pk %}">Edit</a>
+                {% endif %}
+
+                {% if user|has_group:"Basic Staff,Moderators,Superusers" %}
+                    <a href="{% url 'delete-product' pk=product.pk %}">Delete</a>
+                {% endif %}
             </div>
         </div>
         </section>

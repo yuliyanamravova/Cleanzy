@@ -30,6 +30,7 @@
     width: auto;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Product Card */
@@ -39,7 +40,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     text-align: center;
-    padding: 4em 7em;
+    padding: 4em 6em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
