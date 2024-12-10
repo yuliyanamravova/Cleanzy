@@ -1,4 +1,14 @@
-from django.urls import path, include
+from django.urls import path
+from Cleanzy.warehouses.views import AddWarehouseAPIView, WarehouseDetailEditDeleteAPIView, ListWarehousesAPIView
+
+urlpatterns = [
+    path('', ListWarehousesAPIView.as_view(), name='api-warehouses-list'),
+    path('add/', AddWarehouseAPIView.as_view(), name='api-add-warehouse'),
+    path('<int:pk>/', WarehouseDetailEditDeleteAPIView.as_view(), name='api-warehouse-detail'),
+]
+
+
+"""from django.urls import path, include
 
 from Cleanzy.warehouses import views
 urlpatterns = [
@@ -9,4 +19,4 @@ urlpatterns = [
         path('details/', views.DetailsWarehouseView.as_view(), name='detail-warehouse')
     ]))
 
-]
+]"""

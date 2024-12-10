@@ -1,4 +1,32 @@
-from django.contrib.auth import get_user_model
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
+from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
+from .models import Warehouse
+from .serializers import WarehouseSerializer
+
+
+# Add Warehouse API View (Create)
+class AddWarehouseAPIView(CreateAPIView):
+    queryset = Warehouse.objects.all()
+    serializer_class = WarehouseSerializer
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+
+
+# Edit/Delete/Details Warehouse API View (RetrieveUpdateDestroy)
+class WarehouseDetailEditDeleteAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Warehouse.objects.all()
+    serializer_class = WarehouseSerializer
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+
+
+# List Warehouses API View
+class ListWarehousesAPIView(ListAPIView):
+    queryset = Warehouse.objects.all()
+    serializer_class = WarehouseSerializer
+    permission_classes = [IsAuthenticated]
+
+
+
+"""from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
@@ -53,3 +81,4 @@ class DetailsWarehouseView(PermissionRequiredMixin, DetailView):
     model = Warehouse
     template_name = 'warehouses/warehouse-details.html'
     permission_required = 'warehouses.view_warehouse'
+"""

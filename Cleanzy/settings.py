@@ -41,12 +41,15 @@ MY_APPS = [
 ]
 
 INSTALLED_APPS = [
+    "unfold",
+    "unfold.contrib.filters",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ] + MY_APPS
 
 MIDDLEWARE = [
