@@ -4,8 +4,7 @@ from django.db import models
 
 from Cleanzy.products.models import Product
 
-
-user = get_user_model()  # Reference it dynamically
+user = get_user_model()
 
 # Create your models here.
 CHOICES = [

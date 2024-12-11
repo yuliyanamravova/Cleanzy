@@ -9,7 +9,6 @@ from Cleanzy.products.models import Product
 class CatalogueView(ListView):
     template_name = 'products/catalogue.html'
     model = Product
-    paginate_by = 4
     context_object_name = 'products'
 
 

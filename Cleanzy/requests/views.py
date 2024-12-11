@@ -53,7 +53,6 @@ class DetailRequestView(LoginRequiredMixin, DetailView):
     redirect_field_name = 'next'
 
     def get_queryset(self):
-        # Restrict queryset to requests authored by the logged-in user
         return Request.objects.filter(author=self.request.user)
 
     def get_object(self, queryset=None):

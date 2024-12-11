@@ -6,7 +6,7 @@ from Cleanzy.companies.models import Company
 class CompanyBaseForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = '__all__'
+        exclude = ('user',)
         labels = {
             'name': 'Name',
             'address': 'Address',

@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 {% load  get_account %}
+{% load filters %}
 {% load static %}
 {% block content %}
     <div id="home" >
@@ -16,23 +17,22 @@
                 <a href="{% url 'create-product' %}" class="text-center text-decoration-none text-white">Create Product!</a>
                 <a href="{% url 'delete-product' pk=1 %}" class="text-center text-decoration-none text-white">Delete Product!</a>
                 <a href="{% url 'edit-product' pk=1%}" class=".text-center text-decoration-none text-white">Edit Product!</a>
-                <a href="{% url 'api-add-warehouse' %}" class=".text-center">Add Warehouse!</a>
-                <a href="{% url 'api-warehouses-list'%}" class=".text-center">List of Warehouses!</a>
+                <a href="{% url 'api-add-warehouse' %}" class=".text-center text-decoration-none text-white">Add Warehouse!</a>
+
             {% endif %}
-                <a href="{% url 'api-warehouse-detail' pk=1 %}" class=".text-center">Detail Warehouse!</a>
-            <a href="{% url 'details-product' pk=1%}" class=".text-center text-decoration-none text-white">Details Product!</a>
+            <a href="{% url 'api-warehouses-list'%}" class=".text-center text-decoration-none text-white">List of Warehouses!</a>
+            <a href="{% url 'api-warehouse-detail' pk=1 %}" class=".text-center text-decoration-none text-white">Details about our main Warehouse!</a>
             <a href="{% url 'list-request' %}" class=".text-center text-decoration-none text-white">Request List!</a>
 
-            <a href="{% url 'delete-request' id=1%}" class=".text-center">Delete Request!</a>
-            <a href="{% url 'details-request' id=1%}" class=".text-center">Details Request!</a>
-            <a href="{% url 'edit-request' id=1%}" class=".text-center">Edit Request!</a>
-
-            <a href="{% url 'add-company' %}" class=".text-center">Add company!</a>
-            <a href="{% url 'edit-company' pk=1%}" class=".text-center">Edit Company!</a>
-            <a href="{% url 'delete-company' pk=1%}" class=".text-center">Delete Company!</a>
-            <a href="{% url 'detail-company' pk=1%}" class=".text-center">Detail Company!</a>
+            {% if request.user|has_company %}
+                <a href="{% url 'edit-company' pk=company.pk %}" class=".text-center text-decoration-none text-white">Edit Company!</a>
+                <a href="{% url 'delete-company' pk=company.pk%}" class=".text-center text-decoration-none text-white">Delete Company!</a>
+                <a href="{% url 'detail-company' pk=company.pk%}" class=".text-center text-decoration-none text-white">Detail Company!</a>
+            {% else %}
+                <a href="{% url 'add-company' %}" class=".text-center text-decoration-none text-white">Add company!</a>
+            {% endif %}
         {% else %}
-            <a href="{% url 'register' %}" class=".text-center">Register!</a>
+            <a href="{% url 'register' %}" class=".text-center text-decoration-none text-white">Register!</a>
             <a href="{% url 'create-request' %}" class=".text-center text-decoration-none text-white">Create Request!</a>
     {% endif %}
     </div>

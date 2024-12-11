@@ -3,7 +3,6 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import PermissionsMixin, AbstractUser, Group
 from django.db import models
-from Cleanzy.companies.models import Company
 
 # Create your models here.
 
@@ -47,7 +46,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    company = models.ForeignKey(null=True, blank=True, to=Company, on_delete=models.CASCADE)
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
     objects = UserManager()
